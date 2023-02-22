@@ -24,7 +24,7 @@ contract('Etudiants', accounts => {
         it("should store note student in mapping", async () => {
             await StudentsInstance.set(owner,"cyril", 12, { from: owner });
             const storedData = await StudentsInstance.EtudiantsMap(owner);
-            expect(new BN(storedData.note)).to.be.bignumber.equal(new BN(12));
+            expect(storedData.note).to.be.bignumber.equal(new BN(12));
         });
 
         it("should store name student in array", async () => {
@@ -36,7 +36,7 @@ contract('Etudiants', accounts => {
         it("should store note student in array", async () => {
             await StudentsInstance.set(owner,"cyril", 12, { from: owner });
             const storedData = await StudentsInstance.EtudiantsArray(0);
-            expect(new BN(storedData.note)).to.be.bignumber.equal(new BN(12));
+            expect(storedData.note).to.be.bignumber.equal(new BN(12));
         });
     });
 
@@ -55,7 +55,7 @@ contract('Etudiants', accounts => {
         it("should show note student in mapping", async () => {
             await StudentsInstance.set(owner,"cyril", 12, { from: owner });
             const storedData = await StudentsInstance.getMap(owner);
-            expect(new BN(storedData.note)).to.be.bignumber.equal(new BN(12));
+            expect(storedData.note).to.be.bignumber.equal(new BN(12));
         });
 
         it("should show name student in array", async () => {
@@ -67,7 +67,7 @@ contract('Etudiants', accounts => {
         it("should show note student in array", async () => {
             await StudentsInstance.set(owner,"cyril", 12, { from: owner });
             const storedData = await StudentsInstance.getArray("cyril");
-            expect(new BN(storedData.note)).to.be.bignumber.equal(new BN(12));
+            expect(storedData.note).to.be.bignumber.equal(new BN(12));
         });
     });
 
@@ -88,7 +88,7 @@ contract('Etudiants', accounts => {
 
         it("should delete note in mapping", async () => {
             const storedData = await StudentsInstance.getMap(owner);
-            expect(new BN(storedData.note)).to.be.bignumber.equal(new BN(0));
+            expect(storedData.note).to.be.bignumber.equal(new BN(0));
         });
 
         it("should delete name in array", async () => {
@@ -98,7 +98,7 @@ contract('Etudiants', accounts => {
 
         it("should delete note in array", async () => {
             const storedData = await StudentsInstance.getArray("cyril");
-            expect(new BN(storedData.note)).to.be.bignumber.equal(new BN(0));
+            expect(storedData.note).to.be.bignumber.equal(new BN(0));
         });
     });
 
